@@ -1,0 +1,195 @@
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { MapPin, Phone, Mail, Send, Sparkles } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+
+export function Contact() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+  };
+
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: "Address",
+      content: "123 Tech Park, Bangalore, Karnataka 560001",
+      gradient: "from-[#00d4ff] to-[#00ffff]",
+      glow: "rgba(0, 212, 255, 0.5)",
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      content: "+91 80 1234 5678",
+      gradient: "from-[#b026ff] to-[#ff00ff]",
+      glow: "rgba(176, 38, 255, 0.5)",
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      content: "info@factoit.com",
+      gradient: "from-[#ff00ff] to-[#b026ff]",
+      glow: "rgba(255, 0, 255, 0.5)",
+    },
+  ];
+
+  return (
+    <section id="contact" className="relative py-32 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
+      {/* Background Image with Opacity */}
+      <div 
+        className="absolute inset-0 opacity-30"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&h=1080&fit=crop')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f]/90 to-[#0a0a0f]" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full mb-6 neon-glow-blue"
+          >
+            <Sparkles className="h-4 w-4 text-[#00d4ff]" />
+            <span className="text-[#00d4ff] uppercase tracking-wide text-sm font-semibold">Contact Us</span>
+          </motion.div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+            Get in Touch
+          </h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Have a project in mind? Let's discuss how we can help transform your business with technology.
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          {contactInfo.map((info, index) => (
+            <motion.div
+              key={info.title}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 blur-xl transition-opacity"
+                style={{ background: `linear-gradient(135deg, ${info.gradient.includes('00d4ff') ? '#00d4ff' : info.gradient.includes('b026ff') ? '#b026ff' : '#ff00ff'}, transparent)` }}
+              />
+              <div 
+                className="relative glass rounded-3xl p-8 text-center border border-[#00d4ff]/20 hover:border-[#00d4ff]/40 transition-all duration-300 group-hover:scale-105"
+                style={{
+                  boxShadow: `0 0 30px ${info.glow}`,
+                }}
+              >
+                <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${info.gradient} mb-6`}
+                  style={{
+                    boxShadow: `0 0 30px ${info.glow}`,
+                  }}
+                >
+                  <info.icon className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-white">{info.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{info.content}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="max-w-3xl mx-auto"
+        >
+          <div className="glass rounded-3xl p-10 border-2 border-white/20 white-accent-border">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold mb-3 text-white">
+                    Your Name
+                  </label>
+                  <Input
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="John Doe"
+                    required
+                    className="glass border-[#00d4ff]/20 text-white placeholder:text-gray-500 focus:border-[#00d4ff] focus:ring-[#00d4ff]/20"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-semibold mb-3 text-white">
+                    Your Email
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="john@example.com"
+                    required
+                    className="glass border-[#00d4ff]/20 text-white placeholder:text-gray-500 focus:border-[#00d4ff] focus:ring-[#00d4ff]/20"
+                  />
+                </div>
+              </div>
+              <div>
+                <label htmlFor="subject" className="block text-sm font-semibold mb-3 text-white">
+                  Subject
+                </label>
+                <Input
+                  id="subject"
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  placeholder="How can we help you?"
+                  required
+                  className="glass border-[#00d4ff]/20 text-white placeholder:text-gray-500 focus:border-[#00d4ff] focus:ring-[#00d4ff]/20"
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold mb-3 text-white">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  placeholder="Tell us about your project..."
+                  rows={6}
+                  required
+                  className="glass border-[#00d4ff]/20 text-white placeholder:text-gray-500 focus:border-[#00d4ff] focus:ring-[#00d4ff]/20"
+                />
+              </div>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full bg-gradient-to-r from-[#00d4ff] to-[#b026ff] hover:from-[#00ffff] hover:to-[#ff00ff] text-white px-8 py-6 text-lg font-semibold rounded-xl neon-glow-blue transition-all duration-300 transform hover:scale-105"
+              >
+                <span className="flex items-center gap-2">
+                  Send Message <Send className="h-5 w-5" />
+                </span>
+              </Button>
+            </form>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
