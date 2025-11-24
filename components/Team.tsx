@@ -64,26 +64,26 @@ export function Team() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-10 md:mb-14"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full mb-6 neon-glow-blue"
+            className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full mb-5 md:mb-6 neon-glow-blue"
           >
             <Sparkles className="h-4 w-4 text-[#00d4ff]" />
             <span className="text-[#00d4ff] uppercase tracking-wide text-sm font-semibold">Process</span>
           </motion.div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-5 text-white">
             How We Deliver Your Projects
           </h2>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             A clear, streamlined and reliable process — from idea to deployment.
           </p>
         </motion.div>
 
         {/* Process Steps Grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-5 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
           {processSteps.map((step, index) => (
             <motion.div
               key={step.number}

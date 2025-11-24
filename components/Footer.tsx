@@ -128,9 +128,9 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-[#0a0a0f] border-t border-[#00d4ff]/10 text-white pt-20 pb-8 overflow-hidden">
+    <footer className="relative bg-[#0a0a0f] border-t border-[#00d4ff]/10 text-white pt-16 md:pt-20 pb-8 overflow-hidden">
       {/* CTA Section with Animated Background */}
-      <div className="relative py-20 mb-20 overflow-hidden">
+      <div className="relative py-16 md:py-20 mb-12 md:mb-16 overflow-hidden">
         {/* Animated Particle Canvas */}
         <canvas
           ref={canvasRef}

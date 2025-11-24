@@ -24,7 +24,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="relative py-20 md:py-24 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
+    <section id="about" className="relative py-20 md:py-24 lg:py-28 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
       {/* Background Image with Opacity */}
       <div 
         className="absolute inset-0 opacity-30"

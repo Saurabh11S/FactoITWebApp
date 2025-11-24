@@ -110,8 +110,8 @@ export function Hero() {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full blur-[120px] opacity-20 float-animation" style={{ animationDelay: "2s" }} />
       <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-magenta-500 rounded-full blur-[120px] opacity-20 float-animation" style={{ animationDelay: "4s" }} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 md:py-20 lg:py-24">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -136,7 +136,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-8 leading-tight text-5xl md:text-6xl lg:text-7xl font-bold text-white"
+              className="mb-6 md:mb-8 leading-tight text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
             >
               Innovating the Future with{" "}
               <span className="animated-gradient-text block mt-2">
@@ -157,7 +157,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.45 }}
-              className="mb-10 text-lg text-white/80 leading-relaxed max-w-xl"
+              className="mb-8 md:mb-10 text-base md:text-lg text-white/80 leading-relaxed max-w-xl"
             >
               Empowering small businesses & startups with smarter technology.
             </motion.p>
@@ -166,7 +166,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="flex flex-wrap gap-6 mb-12"
+              className="flex flex-wrap gap-4 md:gap-6 mb-8 md:mb-12"
             >
               <Button
                 size="lg"
@@ -191,7 +191,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="grid grid-cols-3 gap-4"
+              className="grid grid-cols-3 gap-3 md:gap-4"
             >
               {[
                 { icon: Code, label: "Expert Code", color: "blue" },

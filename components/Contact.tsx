@@ -45,7 +45,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative py-32 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
+    <section id="contact" className="relative py-20 md:py-24 lg:py-28 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
       {/* Background Image with Opacity */}
       <div 
         className="absolute inset-0 opacity-30"
@@ -63,7 +63,7 @@ export function Contact() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -73,18 +73,18 @@ export function Contact() {
             <Sparkles className="h-4 w-4 text-[#00d4ff]" />
             <span className="text-[#00d4ff] uppercase tracking-wide text-sm font-semibold">Contact Us</span>
           </motion.div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
             Let's Build Your Next Solution
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-3">
             Whether you're looking to get a website built, automate a workflow, deploy to the cloud or need technical help — I'm here to support your business.
           </p>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mt-4">
+          <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Reach out anytime and let's discuss your project.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid lg:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
           {contactInfo.map((info, index) => (
             <motion.div
               key={info.title}
@@ -97,7 +97,7 @@ export function Contact() {
                 style={{ background: `linear-gradient(135deg, ${info.gradient.includes('00d4ff') ? '#00d4ff' : info.gradient.includes('b026ff') ? '#b026ff' : '#ff00ff'}, transparent)` }}
               />
               <div 
-                className="relative glass rounded-3xl p-8 text-center border border-[#00d4ff]/20 hover:border-[#00d4ff]/40 transition-all duration-300 group-hover:scale-105"
+                className="relative glass rounded-3xl p-6 md:p-8 text-center border border-[#00d4ff]/20 hover:border-[#00d4ff]/40 transition-all duration-300 group-hover:scale-105"
                 style={{
                   boxShadow: `0 0 30px ${info.glow}`,
                 }}
@@ -122,7 +122,7 @@ export function Contact() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="glass rounded-3xl p-10 border-2 border-white/20 white-accent-border">
+          <div className="glass rounded-3xl p-6 md:p-8 lg:p-10 border-2 border-white/20 white-accent-border">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>

@@ -128,7 +128,7 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="relative py-32 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
+    <section id="services" className="relative py-20 md:py-24 lg:py-28 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
       {/* Background Image with Opacity */}
       <div 
         className="absolute inset-0 opacity-30"
@@ -146,7 +146,7 @@ export function Services() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -156,15 +156,15 @@ export function Services() {
             <Sparkles className="h-4 w-4 text-[#b026ff]" />
             <span className="text-[#b026ff] uppercase tracking-wide text-sm font-semibold">Our Services</span>
           </motion.div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
             Comprehensive Technology Solutions
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             End-to-End IT Services for Your Business
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => {
             const gradientColor = service.gradient.includes('00d4ff') ? '#00d4ff' : 
                                   service.gradient.includes('b026ff') ? '#b026ff' : 
@@ -188,7 +188,7 @@ export function Services() {
                 
                 {/* Main Card */}
                 <div 
-                  className={`relative glass rounded-3xl p-8 h-full border-2 transition-all duration-300 service-card-hover group-hover:${service.pulseClass} white-accent-border`}
+                  className={`relative glass rounded-3xl p-6 md:p-8 h-full border-2 transition-all duration-300 service-card-hover group-hover:${service.pulseClass} white-accent-border`}
                   style={{
                     '--border-color': service.borderColor,
                     '--glow-color': service.glow,

@@ -60,7 +60,7 @@ export function Portfolio() {
   ];
 
   return (
-    <section id="portfolio" className="relative py-32 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
+    <section id="portfolio" className="relative py-20 md:py-24 lg:py-28 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
       {/* Background Image with Opacity */}
       <div 
         className="absolute inset-0 opacity-30"
@@ -78,7 +78,7 @@ export function Portfolio() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -88,10 +88,10 @@ export function Portfolio() {
             <Sparkles className="h-4 w-4 text-[#ff00ff]" />
             <span className="text-[#ff00ff] uppercase tracking-wide text-sm font-semibold">Portfolio</span>
           </motion.div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
             Recent Work
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Explore our portfolio of successful projects that showcase our expertise and commitment to excellence.
           </p>
         </motion.div>
