@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { ThemeToggle } from "./ThemeToggle";
+import { Logo } from "./Logo";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,27 +71,10 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="flex items-center cursor-pointer group"
+            className="cursor-pointer group"
             onClick={() => handleNavClick("#home", "home")}
           >
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00d4ff] via-[#b026ff] to-[#ff00ff] flex items-center justify-center mr-3 shadow-lg group-hover:shadow-xl transition-all duration-300 neon-glow-blue"
-            >
-              <span className="text-white font-bold text-lg">F</span>
-            </motion.div>
-            <div>
-              <div className={`font-bold tracking-tight text-lg transition-colors ${
-                isScrolled ? "text-white" : "text-white"
-              }`}>
-                Facto Technologies Pvt Ltd
-              </div>
-              <div className={`text-xs transition-colors ${
-                isScrolled ? "text-gray-400" : "text-gray-300"
-              }`}>
-                Factoit.com
-              </div>
-            </div>
+            <Logo size="medium" showText={true} />
           </motion.div>
 
           {/* Desktop Navigation */}

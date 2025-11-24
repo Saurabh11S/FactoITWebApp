@@ -1,24 +1,52 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Linkedin, Twitter, Mail, Sparkles } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { Sparkles } from "lucide-react";
+import discoveryIcon from "../icons/Discovery.png";
+import designBuildIcon from "../icons/DesignBuild.png";
+import deployIcon from "../icons/Deploy.png";
+import supportIcon from "../icons/Support.png";
 
 export function Team() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const team = [
+  const processSteps = [
     {
-      name: "Your Technology Partner",
-      role: "Full-Stack Developer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      bio: "Passionate developer dedicated to building clean, secure and scalable solutions",
+      number: "01",
+      title: "Discovery & Planning",
+      description: "We begin by understanding your goals, defining requirements and identifying the right technology approach. Every project starts with a simple, actionable plan.",
+      icon: discoveryIcon,
       gradient: "from-[#00d4ff] to-[#00ffff]",
+      glow: "rgba(0, 212, 255, 0.5)",
+    },
+    {
+      number: "02",
+      title: "Design & Build",
+      description: "Your solution is crafted with modern frameworks, clean architecture and scalable best practices — ensuring performance, security and long-term maintainability.",
+      icon: designBuildIcon,
+      gradient: "from-[#b026ff] to-[#ff00ff]",
+      glow: "rgba(176, 38, 255, 0.5)",
+    },
+    {
+      number: "03",
+      title: "Deploy & Optimize",
+      description: "We handle cloud deployment, CI/CD setup, monitoring and performance tuning so your system runs smoothly, securely and cost-efficiently.",
+      icon: deployIcon,
+      gradient: "from-[#00d4ff] to-[#00ffff]",
+      glow: "rgba(0, 212, 255, 0.5)",
+    },
+    {
+      number: "04",
+      title: "Support & Evolve",
+      description: "After launch, we continue to refine, enhance and support your product — ensuring it grows with your business and remains future-ready.",
+      icon: supportIcon,
+      gradient: "from-[#b026ff] via-[#ff00ff] to-[#00d4ff]",
+      glow: "rgba(255, 0, 255, 0.5)",
     },
   ];
 
   return (
-    <section id="team" className="relative py-32 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
+    <section id="team" className="relative py-20 md:py-24 bg-[#0a0a0f] scroll-mt-20 overflow-hidden" ref={ref}>
       {/* Background Image with Opacity */}
       <div 
         className="absolute inset-0 opacity-30"
@@ -36,132 +64,81 @@ export function Team() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full mb-6 neon-glow-cyan"
+            className="inline-flex items-center gap-2 px-6 py-3 glass rounded-full mb-6 neon-glow-blue"
           >
-            <Sparkles className="h-4 w-4 text-[#00ffff]" />
-            <span className="text-[#00ffff] uppercase tracking-wide text-sm font-semibold">Our Team</span>
+            <Sparkles className="h-4 w-4 text-[#00d4ff]" />
+            <span className="text-[#00d4ff] uppercase tracking-wide text-sm font-semibold">Process</span>
           </motion.div>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            Meet the Expert
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white">
+            How We Deliver Your Projects
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Behind every project is a passionate full-stack developer dedicated to building clean, secure and scalable solutions. I work closely with clients to understand their goals and deliver results that are practical, modern and future-ready.
-          </p>
-          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mt-4">
-            You get direct communication, transparent processes and high-quality engineering — without the overhead of a large team.
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            A clear, streamlined and reliable process — from idea to deployment.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-md mx-auto">
-          {team.map((member, index) => (
+        {/* Process Steps Grid */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+          {processSteps.map((step, index) => (
             <motion.div
-              key={member.name}
+              key={step.number}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-30 blur-2xl transition-opacity"
-                style={{
-                  background: `linear-gradient(135deg, ${member.gradient.includes('00d4ff') ? '#00d4ff' : member.gradient.includes('b026ff') ? '#b026ff' : '#ff00ff'}, transparent)`,
+              {/* Background Glow Effect */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500 rounded-3xl"
+                style={{ 
+                  background: `linear-gradient(135deg, ${step.gradient.includes('00d4ff') ? '#00d4ff' : '#b026ff'}, transparent)` 
                 }}
               />
-              <div className="relative glass rounded-3xl overflow-hidden border-2 border-white/20 group-hover:border-white/40 transition-all duration-300 group-hover:scale-105 white-accent-glow">
-                {/* Moving Gradient Background */}
-                <motion.div 
-                  className={`absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500 gradient-move-${index % 4}`}
-                  style={{
-                    background: `linear-gradient(135deg, ${member.gradient.includes('00d4ff') ? '#00d4ff' : member.gradient.includes('b026ff') ? '#b026ff' : member.gradient.includes('00ffff') ? '#00ffff' : '#ff00ff'}, transparent)`,
-                    backgroundSize: '200% 200%',
-                  }}
-                  animate={{
-                    backgroundPosition: [
-                      index % 4 === 0 ? '0% 50%' : index % 4 === 1 ? '50% 0%' : index % 4 === 2 ? '0% 0%' : '100% 0%',
-                      index % 4 === 0 ? '100% 50%' : index % 4 === 1 ? '50% 100%' : index % 4 === 2 ? '100% 100%' : '0% 100%',
-                      index % 4 === 0 ? '0% 50%' : index % 4 === 1 ? '50% 0%' : index % 4 === 2 ? '0% 0%' : '100% 0%',
-                    ],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                
-                <div className="aspect-square relative overflow-hidden">
-                  {/* Morphing Shape Behind Profile Picture */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                    <motion.div
-                      className="morphing-blob"
-                      style={{
-                        width: '120%',
-                        height: '120%',
-                        background: `linear-gradient(135deg, ${member.gradient.includes('00d4ff') ? '#00d4ff' : member.gradient.includes('b026ff') ? '#b026ff' : member.gradient.includes('00ffff') ? '#00ffff' : '#ff00ff'}40, ${member.gradient.includes('00d4ff') ? '#00ffff' : member.gradient.includes('b026ff') ? '#ff00ff' : member.gradient.includes('00ffff') ? '#00d4ff' : '#b026ff'}20)`,
-                        filter: 'blur(40px)',
-                        borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-                      }}
-                      animate={{
-                        borderRadius: [
-                          '60% 40% 30% 70% / 60% 30% 70% 40%',
-                          '30% 60% 70% 40% / 50% 60% 30% 60%',
-                          '70% 30% 50% 50% / 30% 50% 70% 50%',
-                          '60% 40% 30% 70% / 60% 30% 70% 40%',
-                        ],
-                        scale: [1, 1.1, 0.9, 1],
-                        rotate: [0, 90, 180, 360],
-                      }}
-                      transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
+              
+              {/* Card */}
+              <div 
+                className="relative glass rounded-3xl p-6 md:p-8 border-2 border-white/20 hover:border-white/40 transition-all duration-300 group-hover:scale-105 white-accent-border h-full"
+                style={{
+                  boxShadow: `0 0 30px ${step.glow}20`,
+                }}
+              >
+                {/* Icon */}
+                <div className="mb-6 flex items-center justify-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                    className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center relative`}
+                    style={{
+                      boxShadow: `0 0 30px ${step.glow}, inset 0 0 20px rgba(255, 255, 255, 0.1)`,
+                    }}
+                  >
+                    <img
+                      src={step.icon}
+                      alt={step.title}
+                      className="w-12 h-12 md:w-14 md:h-14 object-contain filter drop-shadow-lg"
                     />
-                  </div>
-                  
-                  <div className="relative z-10 w-full h-full">
-                    <ImageWithFallback
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-10"
-                    />
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <div className="flex gap-3 justify-center">
-                        {[
-                          { icon: Linkedin, color: "#00d4ff" },
-                          { icon: Twitter, color: "#b026ff" },
-                          { icon: Mail, color: "#ff00ff" },
-                        ].map((social, i) => (
-                          <motion.a
-                            key={i}
-                            href="#"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileHover={{ scale: 1.1 }}
-                            className="w-12 h-12 glass rounded-full flex items-center justify-center border border-white/20 hover:border-white/40 transition-all"
-                            style={{
-                              boxShadow: `0 0 20px ${social.color}40`,
-                            }}
-                          >
-                            <social.icon className={`h-5 w-5 text-white`} />
-                          </motion.a>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl" />
+                  </motion.div>
                 </div>
-                <div className="p-6 glass border-t-2 border-white/20">
-                  <h3 className="text-xl font-bold mb-2 text-white">{member.name}</h3>
-                  <p className={`mb-3 font-semibold bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
-                    {member.role}
+
+                {/* Content */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${step.gradient} bg-clip-text text-transparent`}>
+                      {step.number}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                    {step.description}
                   </p>
-                  <p className="text-gray-300 text-sm leading-relaxed">{member.bio}</p>
                 </div>
               </div>
             </motion.div>

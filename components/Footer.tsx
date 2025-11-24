@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import { Facebook, Twitter, Linkedin, Instagram, Github, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
+import { Logo } from "./Logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -253,17 +254,10 @@ export function Footer() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex items-center space-x-3 mb-6"
+              className="mb-6"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00d4ff] via-[#b026ff] to-[#ff00ff] flex items-center justify-center neon-glow-blue">
-                <span className="text-white font-bold text-lg">F</span>
-              </div>
-              <div>
-                <div className="text-xl font-bold text-white">
-                  Facto Technologies Pvt Ltd
-                </div>
-                <div className="text-xs text-gray-300">Factoit.com</div>
-              </div>
+              <Logo size="medium" showText={true} />
+              <div className="text-xs text-gray-300 mt-2">Factoit.com</div>
             </motion.div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
