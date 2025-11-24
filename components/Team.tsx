@@ -9,32 +9,11 @@ export function Team() {
 
   const team = [
     {
-      name: "Rajesh Kumar",
-      role: "CEO & Founder",
+      name: "Your Technology Partner",
+      role: "Full-Stack Developer",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      bio: "Visionary leader with 15+ years in technology",
+      bio: "Passionate developer dedicated to building clean, secure and scalable solutions",
       gradient: "from-[#00d4ff] to-[#00ffff]",
-    },
-    {
-      name: "Priya Sharma",
-      role: "CTO",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-      bio: "Tech expert specializing in cloud architecture",
-      gradient: "from-[#b026ff] to-[#ff00ff]",
-    },
-    {
-      name: "Amit Patel",
-      role: "Lead Developer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-      bio: "Full-stack developer with passion for innovation",
-      gradient: "from-[#00ffff] to-[#00d4ff]",
-    },
-    {
-      name: "Sneha Reddy",
-      role: "Design Director",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-      bio: "Creative designer with eye for detail",
-      gradient: "from-[#ff00ff] to-[#b026ff]",
     },
   ];
 
@@ -68,14 +47,17 @@ export function Team() {
             <span className="text-[#00ffff] uppercase tracking-wide text-sm font-semibold">Our Team</span>
           </motion.div>
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            Meet the Experts
+            Meet the Expert
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Our talented team of professionals is dedicated to delivering exceptional results for every project.
+            Behind every project is a passionate full-stack developer dedicated to building clean, secure and scalable solutions. I work closely with clients to understand their goals and deliver results that are practical, modern and future-ready.
+          </p>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mt-4">
+            You get direct communication, transparent processes and high-quality engineering — without the overhead of a large team.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-1 lg:grid-cols-1 gap-8 max-w-md mx-auto">
           {team.map((member, index) => (
             <motion.div
               key={member.name}

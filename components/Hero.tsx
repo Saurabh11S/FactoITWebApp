@@ -139,7 +139,7 @@ export function Hero() {
             >
               Innovating the Future with{" "}
               <span className="animated-gradient-text block mt-2">
-                Cutting-Edge Technology
+                Modern, Scalable Technology
               </span>
             </motion.h1>
 
@@ -147,9 +147,18 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-10 text-xl text-white/90 leading-relaxed max-w-xl"
+              className="mb-6 text-xl text-white/90 leading-relaxed max-w-xl"
             >
-              We deliver world-class software solutions, AI-powered systems, and cloud infrastructure to help businesses thrive in the digital age.
+              Helping businesses turn ideas into high-quality digital solutions. I build clean, secure and reliable software — from websites and mobile apps to cloud deployments and smart automation tools.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+              className="mb-10 text-lg text-white/80 leading-relaxed max-w-xl"
+            >
+              Empowering small businesses & startups with smarter technology.
             </motion.p>
 
             <motion.div
@@ -163,7 +172,7 @@ export function Hero() {
                 className="group relative overflow-hidden bg-gradient-to-r from-[#00d4ff] to-[#b026ff] hover:from-[#00ffff] hover:to-[#ff00ff] text-white px-8 py-6 text-lg font-semibold rounded-xl neon-glow-blue transition-all duration-300 transform hover:scale-105"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Get Started <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Let's Connect <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff] to-[#ff00ff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Button>
@@ -172,7 +181,7 @@ export function Hero() {
                 variant="outline"
                 className="glass border-2 border-[#00d4ff]/50 text-white hover:bg-[#00d4ff]/10 hover:border-[#00d4ff] px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:neon-glow-blue"
               >
-                Learn More
+                View Services
               </Button>
             </motion.div>
 

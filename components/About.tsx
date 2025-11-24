@@ -45,8 +45,11 @@ export function About() {
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
             Leading Technology Solutions Provider
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Facto Technologies Pvt Ltd is a premier IT solutions provider dedicated to transforming businesses through innovative technology.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
+            Reliable. Modern. Built for Your Business.
+          </p>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            I provide tailored IT solutions that help businesses enhance their digital presence, automate processes and scale with confidence. With strong hands-on experience in modern frameworks, cloud platforms and AI-driven tools, you get the quality of an experienced developer — without agency-level complications.
           </p>
         </motion.div>
 
@@ -61,11 +64,11 @@ export function About() {
             <div className="relative glass rounded-3xl p-10 border-2 border-white/20 hover:border-[#00d4ff]/40 transition-all duration-300 white-accent-border">
               <h3 className="text-3xl font-bold mb-6 text-white">Our Mission</h3>
               <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-                To empower businesses with cutting-edge technology solutions that drive growth, efficiency, and innovation in an ever-evolving digital landscape.
+                To deliver simple, effective and scalable digital solutions that help businesses grow faster and operate smarter.
               </p>
               <h3 className="text-3xl font-bold mb-6 text-white">Our Vision</h3>
               <p className="text-gray-300 text-lg leading-relaxed">
-                To be the most trusted technology partner for businesses worldwide, recognized for our excellence, innovation, and commitment to client success.
+                To become a trusted technology partner for entrepreneurs and growing companies seeking reliable and cost-effective development services.
               </p>
             </div>
           </motion.div>

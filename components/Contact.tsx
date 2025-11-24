@@ -74,10 +74,13 @@ export function Contact() {
             <span className="text-[#00d4ff] uppercase tracking-wide text-sm font-semibold">Contact Us</span>
           </motion.div>
           <h2 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            Get in Touch
+            Let's Build Your Next Solution
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Have a project in mind? Let's discuss how we can help transform your business with technology.
+            Whether you're looking to get a website built, automate a workflow, deploy to the cloud or need technical help — I'm here to support your business.
+          </p>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed mt-4">
+            Reach out anytime and let's discuss your project.
           </p>
         </motion.div>
 

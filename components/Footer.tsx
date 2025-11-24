@@ -219,7 +219,7 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
             >
-              Let's work together to create innovative solutions that drive your success.
+              Let's collaborate to build secure, modern and high-performing digital solutions that create real impact.
             </motion.p>
             <motion.div
               className="flex flex-wrap justify-center gap-6"
@@ -233,16 +233,9 @@ export function Footer() {
                 className="group relative overflow-hidden bg-gradient-to-r from-[#00d4ff] to-[#b026ff] hover:from-[#00ffff] hover:to-[#ff00ff] text-white px-8 py-6 text-lg font-semibold rounded-xl neon-glow-blue transition-all duration-300 transform hover:scale-105"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Get Started <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  Contact Now <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#00ffff] to-[#ff00ff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="glass border-2 border-[#00d4ff]/50 text-white hover:bg-[#00d4ff]/10 hover:border-[#00d4ff] px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:neon-glow-blue"
-              >
-                Contact Us
               </Button>
             </motion.div>
           </motion.div>

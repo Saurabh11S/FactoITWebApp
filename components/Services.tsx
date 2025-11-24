@@ -68,7 +68,7 @@ export function Services() {
     {
       icon: Code2,
       title: "Web Development",
-      description: "Custom web applications built with modern frameworks and best practices for optimal performance.",
+      description: "Modern, responsive and high-performance websites built using .NET, Angular and other modern frameworks — designed for speed, security and long-term scalability.",
       gradient: "from-[#00d4ff] to-[#00ffff]",
       glow: "rgba(0, 212, 255, 0.5)",
       borderColor: "rgba(0, 212, 255, 0.3)",
@@ -78,7 +78,7 @@ export function Services() {
     {
       icon: Smartphone,
       title: "Mobile App Development",
-      description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
+      description: "Clean, user-friendly Android/iOS apps developed with seamless backend integration and smooth performance.",
       gradient: "from-[#b026ff] to-[#ff00ff]",
       glow: "rgba(176, 38, 255, 0.5)",
       borderColor: "rgba(176, 38, 255, 0.3)",
@@ -88,7 +88,7 @@ export function Services() {
     {
       icon: Cloud,
       title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and migration services to optimize your business operations.",
+      description: "Deployments on AWS, Azure, GCP or modern hosting setups — with CI/CD pipelines, secure environments and cost-efficient configurations.",
       gradient: "from-[#00ffff] to-[#00d4ff]",
       glow: "rgba(0, 255, 255, 0.5)",
       borderColor: "rgba(0, 255, 255, 0.3)",
@@ -97,8 +97,8 @@ export function Services() {
     },
     {
       icon: Brain,
-      title: "AI & Machine Learning",
-      description: "Intelligent solutions powered by artificial intelligence and machine learning algorithms.",
+      title: "AI & Automation",
+      description: "Integrate practical GenAI features like chatbots, data extraction tools and automation scripts to reduce manual work and increase productivity.",
       gradient: "from-[#ff00ff] to-[#b026ff]",
       glow: "rgba(255, 0, 255, 0.5)",
       borderColor: "rgba(255, 0, 255, 0.3)",
@@ -108,7 +108,7 @@ export function Services() {
     {
       icon: Shield,
       title: "Cybersecurity",
-      description: "Comprehensive security solutions to protect your digital assets and sensitive data.",
+      description: "Secure your digital assets with SSL, authentication setups, safe deployments and best security practices for small businesses.",
       gradient: "from-[#00d4ff] to-[#b026ff]",
       glow: "rgba(0, 212, 255, 0.5)",
       borderColor: "rgba(0, 212, 255, 0.3)",
@@ -118,7 +118,7 @@ export function Services() {
     {
       icon: Database,
       title: "Data Analytics",
-      description: "Transform raw data into actionable insights with our advanced analytics solutions.",
+      description: "Custom dashboards and reports that convert raw data into insightful, easy-to-understand business intelligence.",
       gradient: "from-[#b026ff] to-[#ff00ff]",
       glow: "rgba(176, 38, 255, 0.5)",
       borderColor: "rgba(176, 38, 255, 0.3)",
@@ -160,7 +160,7 @@ export function Services() {
             Comprehensive Technology Solutions
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We offer a full spectrum of IT services designed to meet the unique needs of modern businesses.
+            End-to-End IT Services for Your Business
           </p>
         </motion.div>
 
