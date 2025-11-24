@@ -367,30 +367,34 @@ export function Footer() {
             </ul>
           </motion.div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="border-t border-[#00d4ff]/10 pt-6 md:pt-8"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
-            <p className="text-gray-400 text-xs md:text-sm">
-              © {currentYear} Facto Technologies Pvt Ltd. All rights reserved.
-            </p>
-            <div className="flex items-center gap-2">
-              <img
-                src={logoImage}
-                alt="Facto Technologies Logo"
-                className="h-5 w-5 md:h-6 md:w-6 object-contain"
-              />
+      {/* Bottom Bar - Full Width */}
+      <div className="w-full border-t border-[#00d4ff]/20 relative z-10 bg-[#0a0a0f]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="pt-6 md:pt-8 pb-6 md:pb-8"
+          >
+            <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
               <p className="text-gray-400 text-xs md:text-sm">
-                Engineered by Facto Technologies
+                © {currentYear} Facto Technologies Pvt Ltd. All rights reserved.
               </p>
+              <div className="flex items-center gap-2">
+                <img
+                  src={logoImage}
+                  alt="Facto Technologies Logo"
+                  className="h-5 w-5 md:h-6 md:w-6 object-contain"
+                />
+                <p className="text-gray-400 text-xs md:text-sm">
+                  Engineered by Facto Technologies
+                </p>
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </footer>
   );
