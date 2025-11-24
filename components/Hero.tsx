@@ -128,6 +128,7 @@ export function Hero() {
               <div className="flex items-center gap-2">
                 <Sparkles className="h-4 w-4 text-[#00d4ff]" />
                 <span className="text-sm font-medium">Welcome to the Future of Technology</span>
+                {/* Auto deployment test */}
               </div>
             </motion.div>
 
