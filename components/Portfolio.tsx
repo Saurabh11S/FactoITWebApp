@@ -96,7 +96,7 @@ export function Portfolio() {
           </p>
         </motion.div>
 
-        <div className="space-y-32">
+        <div className="space-y-20 md:space-y-24">
           {projects.map((project, index) => {
             const projectRef = useRef<HTMLDivElement>(null);
             const imageRef = useRef<HTMLDivElement>(null);
@@ -166,9 +166,9 @@ export function Portfolio() {
                 initial={{ opacity: 1 }}
                 className={`flex flex-col ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                } items-center gap-12 group`}
+                } items-center gap-8 md:gap-10 group`}
               >
-                <div className={`flex-1 w-full ${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
+                <div className={`flex-[0.9] w-full max-w-lg ${index % 2 === 0 ? "md:order-1" : "md:order-2"}`}>
                   <motion.div
                     ref={imageRef}
                     initial={{ opacity: 0.6 }}
@@ -199,7 +199,7 @@ export function Portfolio() {
                       }}
                     />
                     <motion.div 
-                      className="relative glass border border-[#00d4ff]/20 p-4 rounded-3xl"
+                      className="relative glass border border-[#00d4ff]/20 p-2 md:p-3 rounded-3xl"
                       style={{
                         borderColor: useTransform(
                           smoothProgress,
@@ -229,7 +229,7 @@ export function Portfolio() {
                         <ImageWithFallback
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                          className="w-full h-auto max-h-[400px] md:max-h-[500px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                         />
                         <motion.div 
                           className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
@@ -246,7 +246,7 @@ export function Portfolio() {
                 </div>
 
               <motion.div 
-                className={`flex-1 w-full ${index % 2 === 0 ? "md:order-2" : "md:order-1"} portfolio-content-container`}
+                className={`flex-1 w-full ${index % 2 === 0 ? "md:order-2" : "md:order-1"} portfolio-content-container max-w-xl`}
                 initial={{ opacity: 0.7 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 + 0.2 }}
