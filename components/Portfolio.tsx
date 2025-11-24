@@ -3,6 +3,12 @@ import { useRef } from "react";
 import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Button } from "./ui/button";
+import commerceImage from "../icons/RecentWork/Commerce.png";
+import mobileAppImage from "../icons/RecentWork/MobileApp.png";
+import cloudImage from "../icons/RecentWork/Cloud.png";
+import aiImage from "../icons/RecentWork/AI.png";
+import dataImage from "../icons/RecentWork/Data.png";
+import iotImage from "../icons/RecentWork/IoT.png";
 
 export function Portfolio() {
   const ref = useRef(null);
@@ -13,42 +19,42 @@ export function Portfolio() {
       number: "01",
       title: "Commerce Platform",
       description: "Developed a responsive and feature-rich commerce interface for small businesses. Ensured seamless navigation, secure backend integration and scalable architecture.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: commerceImage,
       gradient: "from-[#00d4ff] to-[#00ffff]",
     },
     {
       number: "02",
       title: "Marketing Mobile App",
       description: "Built a simple, intuitive mobile app for campaign tracking and customer engagement. Includes backend APIs, analytics and a clean UI.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: mobileAppImage,
       gradient: "from-[#b026ff] to-[#ff00ff]",
     },
     {
       number: "03",
       title: "Cloud Migration",
       description: "Helped a client transition their existing application to a secure and scalable cloud environment with optimized performance and reduced hosting costs.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: cloudImage,
       gradient: "from-[#00ffff] to-[#00d4ff]",
     },
     {
       number: "04",
       title: "AI Solutions",
       description: "Created lightweight AI tools such as automated responders, content assistants and data-processing scripts to streamline workflows.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: aiImage,
       gradient: "from-[#ff00ff] to-[#b026ff]",
     },
     {
       number: "05",
       title: "Data Analytics",
       description: "Designed a dashboard solution that provides clear visual insights into customer behavior and business performance metrics.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: dataImage,
       gradient: "from-[#00d4ff] to-[#b026ff]",
     },
     {
       number: "06",
       title: "IoT Smart Home",
       description: "Developed integration components that connect smart devices with cloud-based services, enabling automation and remote interactions.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+      image: iotImage,
       gradient: "from-[#b026ff] to-[#ff00ff]",
     },
   ];
