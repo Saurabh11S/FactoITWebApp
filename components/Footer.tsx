@@ -376,7 +376,7 @@ export function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="pt-6 md:pt-8 pb-6 md:pb-8"
+            className="pt-4 md:pt-5 pb-4 md:pb-5"
           >
             <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
               <p className="text-gray-400 text-xs md:text-sm">
