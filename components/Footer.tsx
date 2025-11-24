@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import { Facebook, Twitter, Linkedin, Instagram, Github, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Logo } from "./Logo";
+import logoImage from "../logo/Logo2.png";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -372,15 +373,22 @@ export function Footer() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="border-t border-[#00d4ff]/10 pt-8"
+          className="border-t border-[#00d4ff]/10 pt-6 md:pt-8"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+            <p className="text-gray-400 text-xs md:text-sm">
               © {currentYear} Facto Technologies Pvt Ltd. All rights reserved.
             </p>
-            <p className="text-gray-500 text-sm">
-              Designed with <span className="text-[#ff00ff]">❤️</span> by React UI
-            </p>
+            <div className="flex items-center gap-2">
+              <img
+                src={logoImage}
+                alt="Facto Technologies Logo"
+                className="h-5 w-5 md:h-6 md:w-6 object-contain"
+              />
+              <p className="text-gray-400 text-xs md:text-sm">
+                Engineered by Facto Technologies
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
