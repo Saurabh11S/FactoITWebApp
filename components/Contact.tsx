@@ -72,14 +72,14 @@ export function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      content: "8877-577-977",
+      content: "+91-8877-577-977",
       gradient: "from-[#b026ff] to-[#ff00ff]",
       glow: "rgba(176, 38, 255, 0.5)",
     },
     {
       icon: Mail,
       title: "Email",
-      content: "info@factoit.com",
+      content: "factoitinfo@gmail.com",
       gradient: "from-[#ff00ff] to-[#b026ff]",
       glow: "rgba(255, 0, 255, 0.5)",
     },
