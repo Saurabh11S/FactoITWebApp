@@ -1,9 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { MapPin, Phone, Mail, Send, Sparkles } from "lucide-react";
+import { MapPin, Phone, Mail, Send, Sparkles, Loader2 } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { toast } from "sonner";
 
 export function Contact() {
   const ref = useRef(null);
@@ -14,17 +15,57 @@ export function Contact() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || errorData.message || `Server error: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // Success
+      toast.success('Message sent successfully!', {
+        description: 'We\'ll get back to you soon. Check your email for confirmation.',
+        duration: 5000,
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error: any) {
+      console.error('Error sending email:', error);
+      toast.error('Failed to send message', {
+        description: error.message || 'Please try again later or contact us directly.',
+        duration: 5000,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
       icon: MapPin,
       title: "Address",
-      content: "123 Tech Park, Bangalore, Karnataka 560001",
+      content: "G-105, Second Floor, New Delhi, Arya Samaj Nagar, Delhi, 110059 IND",
       gradient: "from-[#00d4ff] to-[#00ffff]",
       glow: "rgba(0, 212, 255, 0.5)",
     },
@@ -183,10 +224,20 @@ export function Contact() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full bg-gradient-to-r from-[#00d4ff] to-[#b026ff] hover:from-[#00ffff] hover:to-[#ff00ff] text-white px-8 py-6 text-lg font-semibold rounded-xl neon-glow-blue transition-all duration-300 transform hover:scale-105"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-[#00d4ff] to-[#b026ff] hover:from-[#00ffff] hover:to-[#ff00ff] text-white px-8 py-6 text-lg font-semibold rounded-xl neon-glow-blue transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 <span className="flex items-center gap-2">
-                  Send Message <Send className="h-5 w-5" />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-5 w-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message <Send className="h-5 w-5" />
+                    </>
+                  )}
                 </span>
               </Button>
             </form>

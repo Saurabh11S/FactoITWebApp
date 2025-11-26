@@ -6,6 +6,7 @@ import { Team } from "./components/Team";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Navigation } from "./components/Navigation";
+import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Team />
       <Contact />
       <Footer />
+      <Toaster position="top-right" />
     </div>
   );
 }
