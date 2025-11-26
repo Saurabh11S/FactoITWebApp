@@ -65,14 +65,14 @@ export function Contact() {
     {
       icon: MapPin,
       title: "Address",
-      content: "G-105, Second Floor, New Delhi, Arya Samaj Nagar, Delhi, 110059 IND",
+      content: "Sector 119, Noida",
       gradient: "from-[#00d4ff] to-[#00ffff]",
       glow: "rgba(0, 212, 255, 0.5)",
     },
     {
       icon: Phone,
       title: "Phone",
-      content: "+91 80 1234 5678",
+      content: "8877-577-977",
       gradient: "from-[#b026ff] to-[#ff00ff]",
       glow: "rgba(176, 38, 255, 0.5)",
     },
