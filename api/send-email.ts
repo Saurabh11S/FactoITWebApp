@@ -1,12 +1,5 @@
 import sgMail from '@sendgrid/mail';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-// Get __dirname equivalent for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 // Initialize SendGrid
 if (process.env.SENDGRID_API_KEY) {
@@ -24,34 +17,20 @@ function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;');
 }
 
-// Get logo as base64 for embedding in emails
-function getLogoBase64(): string {
-  try {
-    const possiblePaths = [
-      join(process.cwd(), 'logo', 'Logo2.png'),
-      join(process.cwd(), 'public', 'logo', 'Logo2.png'),
-      join(__dirname, '..', 'logo', 'Logo2.png'),
-      join(__dirname, '..', 'public', 'logo', 'Logo2.png'),
-    ];
-    
-    for (const logoPath of possiblePaths) {
-      try {
-        const logoBuffer = readFileSync(logoPath);
-        const base64 = logoBuffer.toString('base64');
-        return `data:image/png;base64,${base64}`;
-      } catch (err) {
-        continue;
-      }
-    }
-    return '';
-  } catch (error) {
-    return '';
-  }
+// Get logo URL for emails (using hosted URL to prevent Gmail clipping)
+function getLogoUrl(): string {
+  // Use hosted URL from Vercel deployment
+  const baseUrl = process.env.VERCEL_URL 
+    ? `https://${process.env.VERCEL_URL}` 
+    : (process.env.VERCEL ? `https://${process.env.VERCEL}` : 'https://factoitwebapp.vercel.app');
+  
+  // Logo is in public folder, accessible at root
+  return `${baseUrl}/logo/Logo2.png`;
 }
 
 // Email template for user confirmation
 function getUserEmailTemplate(name: string, subject: string, message: string) {
-  const logoBase64 = getLogoBase64();
+  const logoUrl = getLogoUrl();
   const safeName = escapeHtml(name);
   const safeSubject = escapeHtml(subject);
   const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
@@ -71,7 +50,7 @@ function getUserEmailTemplate(name: string, subject: string, message: string) {
           <!-- Header -->
           <tr>
             <td style="padding: 40px 40px 30px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(176, 38, 255, 0.15) 100%);">
-              ${logoBase64 ? `<img src="${logoBase64}" alt="Facto Technologies" width="150" style="max-width: 150px; width: 150px; height: auto; display: block; margin: 0 auto 20px; border: 0;" />` : ''}
+              <img src="${logoUrl}" alt="Facto Technologies" width="150" style="max-width: 150px; width: 150px; height: auto; display: block; margin: 0 auto 20px; border: 0;" />
               <h1 style="margin: 0 0 10px; font-size: 28px; font-weight: 700; color: #ffffff;">Facto Technologies</h1>
               <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #00d4ff 0%, #b026ff 100%); margin: 15px auto 0; border-radius: 2px;"></div>
             </td>
@@ -120,7 +99,7 @@ function getUserEmailTemplate(name: string, subject: string, message: string) {
 
 // Email template for company notification
 function getCompanyEmailTemplate(name: string, email: string, subject: string, message: string) {
-  const logoBase64 = getLogoBase64();
+  const logoUrl = getLogoUrl();
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeSubject = escapeHtml(subject);
@@ -141,7 +120,7 @@ function getCompanyEmailTemplate(name: string, email: string, subject: string, m
           <!-- Header -->
           <tr>
             <td style="padding: 40px 40px 30px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(176, 38, 255, 0.15) 100%);">
-              ${logoBase64 ? `<img src="${logoBase64}" alt="Facto Technologies" width="150" style="max-width: 150px; width: 150px; height: auto; display: block; margin: 0 auto 20px; border: 0;" />` : ''}
+              <img src="${logoUrl}" alt="Facto Technologies" width="150" style="max-width: 150px; width: 150px; height: auto; display: block; margin: 0 auto 20px; border: 0;" />
               <h1 style="margin: 0 0 10px; font-size: 28px; font-weight: 700; color: #ffffff;">Facto Technologies</h1>
               <div style="width: 60px; height: 3px; background: linear-gradient(90deg, #00d4ff 0%, #b026ff 100%); margin: 15px auto 0; border-radius: 2px;"></div>
             </td>
