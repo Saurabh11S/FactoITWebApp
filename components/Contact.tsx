@@ -72,7 +72,7 @@ export function Contact() {
     {
       icon: Phone,
       title: "Phone",
-      content: "+91-8877-577-977",
+      content: "+91-9711900981",
       gradient: "from-[#b026ff] to-[#ff00ff]",
       glow: "rgba(176, 38, 255, 0.5)",
     },
